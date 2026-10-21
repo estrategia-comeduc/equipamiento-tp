@@ -786,7 +786,7 @@ window.DB_FIELDS=['especialidad','mencion','tipoPost','docs',
   'simApt3Text','simApt3Feedback'];
 
 (async()=>{
-  await null; // permite que window.dbSyncIndicator se defina antes de ser llamada
+  await new Promise(r=>setTimeout(r,0)); // espera a que todos los scripts sincronizados terminen
   // ===== ADAPTADOR IA: llama a /api/analyze en Vercel =====
   _sample={
     json:async function(prompt){
