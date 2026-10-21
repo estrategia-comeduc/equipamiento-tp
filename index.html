@@ -786,8 +786,9 @@ window.DB_FIELDS=['especialidad','mencion','tipoPost','docs',
   'simApt3Text','simApt3Feedback'];
 
 (async()=>{
+  await null; // permite que window.dbSyncIndicator se defina antes de ser llamada
   // ===== ADAPTADOR IA: llama a /api/analyze en Vercel =====
-  window._sample={
+  _sample={
     json:async function(prompt){
       const res=await fetch('/api/analyze',{method:'POST',
         headers:{'Content-Type':'application/json'},
@@ -799,7 +800,7 @@ window.DB_FIELDS=['especialidad','mencion','tipoPost','docs',
       return res.json();
     }
   };
-  window._sampleReady=true;
+  _sampleReady=true;
 
   // ===== ADAPTADOR DB: Supabase con interfaz compatible =====
   try{
